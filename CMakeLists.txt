@@ -10,18 +10,20 @@ find_package(Eigen3 REQUIRED)
 find_package(diesel_platform_core REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
-    src/filter_friendly.cpp
-    src/aimer.cpp
-    src/target.cpp
-    src/tracker.cpp
-    src/sp_association.cpp
-    src/tracked_aim.cpp
-    src/world_aim_solver.cpp
-    src/aim_pipeline.cpp
-    src/fusion.cpp
-    src/world_snapshot.cpp
-    src/native_control_loop.cpp
-    src/control_frame_adapter.cpp
+    src/arm/level_arm.cpp
+    src/arm/observation.cpp
+    src/armor/filter_friendly.cpp
+    src/armor/aimer.cpp
+    src/armor/target.cpp
+    src/armor/tracker.cpp
+    src/armor/sp_association.cpp
+    src/armor/tracked_aim.cpp
+    src/armor/world_aim_solver.cpp
+    src/armor/aim_pipeline.cpp
+    src/armor/fusion.cpp
+    src/armor/world_snapshot.cpp
+    src/armor/native_control_loop.cpp
+    src/armor/control_frame_adapter.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -45,6 +47,11 @@ ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
 
 if(BUILD_TESTING)
     find_package(ament_cmake_gtest REQUIRED)
+    add_executable(test_arm_geometry test/test_arm_geometry.cpp)
+    target_link_libraries(test_arm_geometry PRIVATE ${PROJECT_NAME})
+    add_test(NAME test_arm_geometry COMMAND test_arm_geometry)
+    ament_add_gtest(test_arm_observation test/test_arm_observation.cpp)
+    target_link_libraries(test_arm_observation ${PROJECT_NAME})
     ament_add_gtest(test_freshness_policy test/test_freshness_policy.cpp)
     target_link_libraries(test_freshness_policy ${PROJECT_NAME})
 

@@ -1,4 +1,4 @@
-#include "diesel_vision_backend/fusion.hpp"
+#include "diesel_vision_backend/armor/fusion.hpp"
 
 #include <algorithm>
 #include <cmath>

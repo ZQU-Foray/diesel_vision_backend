@@ -1,5 +1,5 @@
-#include "diesel_vision_backend/tracker.hpp"
-#include "diesel_vision_backend/sp_association.hpp"
+#include "diesel_vision_backend/armor/tracker.hpp"
+#include "diesel_vision_backend/armor/sp_association.hpp"
 
 #include <algorithm>
 #include <cmath>

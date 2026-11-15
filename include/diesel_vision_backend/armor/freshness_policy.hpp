@@ -1,5 +1,5 @@
-#ifndef FORAY_AUTO_AIM_FRESHNESS_POLICY_HPP
-#define FORAY_AUTO_AIM_FRESHNESS_POLICY_HPP
+#ifndef DIESEL_VISION_BACKEND_ARMOR_FRESHNESS_POLICY_HPP
+#define DIESEL_VISION_BACKEND_ARMOR_FRESHNESS_POLICY_HPP
 
 #include <cmath>
 
@@ -83,4 +83,4 @@ inline StaleReason classify_age(double sample_s, double now_s, double max_age_s,
 
 } // namespace diesel_vision_backend
 
-#endif // FORAY_AUTO_AIM_FRESHNESS_POLICY_HPP
+#endif // DIESEL_VISION_BACKEND_ARMOR_FRESHNESS_POLICY_HPP

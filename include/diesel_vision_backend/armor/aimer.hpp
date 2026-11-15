@@ -1,7 +1,7 @@
 #ifndef DIESEL_VISION_BACKEND_AIMER_HPP
 #define DIESEL_VISION_BACKEND_AIMER_HPP
 
-#include "diesel_vision_backend/gimbal_command.hpp"
+#include "diesel_vision_backend/armor/gimbal_command.hpp"
 #include <Eigen/Dense>
 
 namespace diesel_vision_backend {

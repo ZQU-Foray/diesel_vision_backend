@@ -1,5 +1,33 @@
 # 开发计划
 
+## 2026-11-14 include业务分区（覆盖旧路径）
+
+验证：加载ROS Humble环境后重新构建，CTest 15/15 测试程序通过；仓内旧根路径include扫描为0，git diff --check通过。未运行真实硬件，外部历史调用方尚未迁移。
+
+头文件与src同步按业务分区；装甲板armor/、机械臂arm/，前端检测抽象放common/。所有仓内源码、工具与测试include同步更新。库目标、命名空间和算法不变；这是公共包含路径破坏性变更，不保留旧路径转发头，外部调用方须同步改include。未改其他工作区或历史模拟器源码，未commit/push。
+
+
+## 2026-11-14 平台依赖已接通（覆盖下文历史阻断）
+
+- 固定diesel_platform的origin/dev提交58e617fd56a71b012ccc6b94e2711591bc1741ff，工作区内构建/安装diesel_platform_core，通过显式diesel_platform_core_DIR供后端查找。
+- 后端完整构建通过，CTest 15/15测试程序通过；平台USB/RoboLink筛选测试39/39通过。未执行平台全部218项测试。
+- 未删除或替换生产依赖，未改平台源码，未安装系统级权限规则；无真实硬件控制。工作区根build_backend.sh记录构建顺序。
+- 两仓未commit/push，平台固定提交只读使用；正式元仓依赖版本锁待本人评审。
+
+## 2026-11-14 源码业务分区
+
+验证：机械臂6项几何检查、观测变换GTest通过。全仓仍缺diesel_platform_core，不能宣称全仓构建通过；不改平台依赖绕过检查。
+
+按本人要求，将装甲板实现迁入src/armor，机械臂实现归src/arm。CMake同步源文件路径，公共头文件/命名空间/算法不变。前端观测校验由inline移为src/arm/observation.cpp，测试语义不变。未commit/push，PR仍到dev。
+
+## 2026-11-14 机械臂分支
+
+验证：新增几何6项检查及观测变换GTest独立编译运行通过；全仓配置因未安装diesel_platform_core而阻断，未伪造依赖或宣称全仓通过。
+- 从 origin/dev b97bed6 建立 feat/arm-backend，PR目标dev；未commit/push。
+- 已迁入三自由度LevelArmModel，命名空间diesel_vision_backend::arm；149mm来自本人说明，轴心距待复核。
+- 完整相机目标位姿和同采样相机变换输入、时效与SE(3)校验独立实现，不依赖前端/OpenCV。
+- 旧四轴任务仿真未迁入正式链路；逆解、电机映射、碰撞和实机仍未实现。
+
 ## 任务列表
 
 - [ ] 接 `diesel_vision_frontend` 的逐帧 `Observation`，实现多源目标融合与注入

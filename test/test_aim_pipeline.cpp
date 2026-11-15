@@ -1,4 +1,4 @@
-#include "diesel_vision_backend/aim_pipeline.hpp"
+#include "diesel_vision_backend/armor/aim_pipeline.hpp"
 #include <gtest/gtest.h>
 
 using namespace diesel_vision_backend;

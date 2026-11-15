@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include <limits>
 
-#include "diesel_vision_backend/world_aim_solver.hpp"
+#include "diesel_vision_backend/armor/world_aim_solver.hpp"
 
 using namespace diesel_vision_backend;
 

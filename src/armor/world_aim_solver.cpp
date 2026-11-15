@@ -1,9 +1,9 @@
-#include "diesel_vision_backend/world_aim_solver.hpp"
+#include "diesel_vision_backend/armor/world_aim_solver.hpp"
 
 #include <cmath>
 
-#include "diesel_vision_backend/aimer.hpp"
-#include "diesel_vision_backend/tracked_aim.hpp"
+#include "diesel_vision_backend/armor/aimer.hpp"
+#include "diesel_vision_backend/armor/tracked_aim.hpp"
 
 namespace diesel_vision_backend {
 

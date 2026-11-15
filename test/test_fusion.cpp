@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-#include "diesel_vision_backend/fusion.hpp"
+#include "diesel_vision_backend/armor/fusion.hpp"
 
 namespace diesel_vision_backend {
 namespace {

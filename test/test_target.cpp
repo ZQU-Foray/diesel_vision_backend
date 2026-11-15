@@ -3,7 +3,7 @@
 #include <cmath>
 #include <random>
 
-#include "diesel_vision_backend/target.hpp"
+#include "diesel_vision_backend/armor/target.hpp"
 
 using namespace diesel_vision_backend;
 

@@ -1,5 +1,31 @@
 # 关键工程决策日志
 
+## 2026-11-14 include业务分区（覆盖旧路径）
+
+头文件与src同步按业务分区；装甲板armor/、机械臂arm/，前端检测抽象放common/。所有仓内源码、工具与测试include同步更新。库目标、命名空间和算法不变；这是公共包含路径破坏性变更，不保留旧路径转发头，外部调用方须同步改include。未改其他工作区或历史模拟器源码，未commit/push。
+
+
+## 2026-11-14 本地平台依赖修复
+
+原因：find_package(diesel_platform_core REQUIRED)找不到安装后的包配置，而非机械臂几何错误。
+
+选择：引入平台dev的固定提交58e617fd56a71b012ccc6b94e2711591bc1741ff，先编译/安装到工作区私有前缀，再以diesel_platform_core_DIR配置后端。保留diesel_platform::link依赖，不伪造CMake包、不注释通讯源码、不改系统配置。后端完整构建及15组测试通过，平台通讯39项无硬件测试通过。
+
+复现入口在本地工作区build_backend.sh；跨仓正式版本锁需后续在元仓.repos评审，本次不提交业务仓以外的仓库变更。
+
+## 2026-11-14 源码业务分区
+
+按本人要求，将装甲板实现迁入src/armor，机械臂实现归src/arm。CMake同步源文件路径，公共头文件/命名空间/算法不变。前端观测校验由inline移为src/arm/observation.cpp，测试语义不变。未commit/push，PR仍到dev。
+
+## 2026-11-14 机械臂职责与命名
+
+- 从 origin/dev b97bed6 建立 feat/arm-backend，PR目标dev；未commit/push。
+- 已迁入三自由度LevelArmModel，命名空间diesel_vision_backend::arm；149mm来自本人说明，轴心距待复核。
+- 完整相机目标位姿和同采样相机变换输入、时效与SE(3)校验独立实现，不依赖前端/OpenCV。
+- 旧四轴任务仿真未迁入正式链路；逆解、电机映射、碰撞和实机仍未实现。
+
+保持最新dev的PnP在前端、坐标转换/运动学在后端边界，不迁入旧foray_arm四轴演示的OpenCV依赖。旧冲突工作区完整保留，新目录为隔离Git工作树，不另建远端仓库。
+
 ## 2026-11-11：完整直瞄运行链路收归C++
 
 新增AimPipeline公共接口：复用VisionFrameResult或直接调用同帧双模型/PnP，再加载候选手眼、主机接收时刻SLERP、转换世界观测、调用既有Tracker/EKF/选板与DirectWorldAimSolver。NativeControlLoop独立1ms轮询USB、约100Hz发送，不再经Python坐标适配或世界系worker。候选JSON方向、旋转正交性和内参路径强校验；候选警告保留，不硬编码个人路径。

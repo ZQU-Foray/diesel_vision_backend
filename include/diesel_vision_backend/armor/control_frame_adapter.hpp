@@ -5,7 +5,7 @@
 #include <optional>
 #include <vector>
 
-#include "diesel_vision_backend/gimbal_command.hpp"
+#include "diesel_vision_backend/armor/gimbal_command.hpp"
 
 namespace diesel::platform::link {
 class RoboLinkHostLink;

@@ -4,7 +4,7 @@
 #include <cmath>
 #include <limits>
 
-#include "diesel_vision_backend/tracker.hpp"
+#include "diesel_vision_backend/armor/tracker.hpp"
 
 using namespace diesel_vision_backend;
 

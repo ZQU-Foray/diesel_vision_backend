@@ -10,8 +10,8 @@
 
 #include "diesel/platform/link/robolink_codec.hpp"
 #include "diesel/platform/link/robolink_host_link.hpp"
-#include "diesel_vision_backend/aimer.hpp"
-#include "diesel_vision_backend/control_frame_adapter.hpp"
+#include "diesel_vision_backend/armor/aimer.hpp"
+#include "diesel_vision_backend/armor/control_frame_adapter.hpp"
 
 namespace {
 

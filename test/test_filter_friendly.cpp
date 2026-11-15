@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "diesel_vision_backend/target_candidate.hpp"
+#include "diesel_vision_backend/armor/target_candidate.hpp"
 
 using namespace diesel_vision_backend;
 

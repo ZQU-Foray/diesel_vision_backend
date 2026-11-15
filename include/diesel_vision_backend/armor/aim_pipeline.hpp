@@ -6,12 +6,12 @@
 #include <string>
 #include <vector>
 
-#include "diesel_vision_backend/freshness_policy.hpp"
-#include "diesel_vision_backend/fusion.hpp"
-#include "diesel_vision_backend/observation.hpp"
-#include "diesel_vision_backend/tracker.hpp"
-#include "diesel_vision_backend/world_aim_solver.hpp"
-#include "diesel_vision_backend/world_snapshot.hpp"
+#include "diesel_vision_backend/armor/freshness_policy.hpp"
+#include "diesel_vision_backend/armor/fusion.hpp"
+#include "diesel_vision_backend/armor/observation.hpp"
+#include "diesel_vision_backend/armor/tracker.hpp"
+#include "diesel_vision_backend/armor/world_aim_solver.hpp"
+#include "diesel_vision_backend/armor/world_snapshot.hpp"
 
 namespace diesel_vision_backend {
 

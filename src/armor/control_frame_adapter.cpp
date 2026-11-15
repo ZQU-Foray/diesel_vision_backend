@@ -1,4 +1,4 @@
-#include "diesel_vision_backend/control_frame_adapter.hpp"
+#include "diesel_vision_backend/armor/control_frame_adapter.hpp"
 
 #include <cmath>
 #include <limits>

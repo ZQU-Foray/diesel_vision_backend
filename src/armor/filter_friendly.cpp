@@ -1,4 +1,4 @@
-#include "diesel_vision_backend/target_candidate.hpp"
+#include "diesel_vision_backend/armor/target_candidate.hpp"
 
 namespace diesel_vision_backend {
 

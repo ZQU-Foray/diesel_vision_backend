@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "diesel_vision_backend/observation.hpp"
+#include "diesel_vision_backend/armor/observation.hpp"
 
 namespace diesel_vision_backend {
 

@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "diesel_vision_backend/tracked_aim.hpp"
+#include "diesel_vision_backend/armor/tracked_aim.hpp"
 
 namespace diesel_vision_backend {
 namespace {

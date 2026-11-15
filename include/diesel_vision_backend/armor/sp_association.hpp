@@ -1,9 +1,9 @@
-#ifndef FORAY_AUTO_AIM_SP_ASSOCIATION_HPP
-#define FORAY_AUTO_AIM_SP_ASSOCIATION_HPP
+#ifndef DIESEL_VISION_BACKEND_ARMOR_SP_ASSOCIATION_HPP
+#define DIESEL_VISION_BACKEND_ARMOR_SP_ASSOCIATION_HPP
 
 #include <optional>
 
-#include "diesel_vision_backend/tracker.hpp"
+#include "diesel_vision_backend/armor/tracker.hpp"
 
 namespace diesel_vision_backend {
 

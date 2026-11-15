@@ -1,7 +1,7 @@
-#ifndef FORAY_AUTO_AIM_WORLD_AIM_SOLVER_HPP
-#define FORAY_AUTO_AIM_WORLD_AIM_SOLVER_HPP
+#ifndef DIESEL_VISION_BACKEND_ARMOR_WORLD_AIM_SOLVER_HPP
+#define DIESEL_VISION_BACKEND_ARMOR_WORLD_AIM_SOLVER_HPP
 
-#include "diesel_vision_backend/target.hpp"
+#include "diesel_vision_backend/armor/target.hpp"
 
 namespace diesel_vision_backend {
 
@@ -38,4 +38,4 @@ class DirectWorldAimSolver final : public WorldAimSolver {
 
 } // namespace diesel_vision_backend
 
-#endif // FORAY_AUTO_AIM_WORLD_AIM_SOLVER_HPP
+#endif // DIESEL_VISION_BACKEND_ARMOR_WORLD_AIM_SOLVER_HPP

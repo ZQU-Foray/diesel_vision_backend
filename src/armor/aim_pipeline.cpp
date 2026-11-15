@@ -1,11 +1,11 @@
-#include "diesel_vision_backend/aim_pipeline.hpp"
+#include "diesel_vision_backend/armor/aim_pipeline.hpp"
 
 #include <algorithm>
 #include <cmath>
 #include <stdexcept>
 
-#include "diesel_vision_backend/aimer.hpp"
-#include "diesel_vision_backend/tracked_aim.hpp"
+#include "diesel_vision_backend/armor/aimer.hpp"
+#include "diesel_vision_backend/armor/tracked_aim.hpp"
 
 namespace diesel_vision_backend {
 namespace {

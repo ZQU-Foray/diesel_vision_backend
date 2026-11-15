@@ -1,6 +1,6 @@
 // 时间门限的边界行为：非有限、回退、超龄、插值窗口
-#include "diesel_vision_backend/aim_pipeline.hpp"
-#include "diesel_vision_backend/freshness_policy.hpp"
+#include "diesel_vision_backend/armor/aim_pipeline.hpp"
+#include "diesel_vision_backend/armor/freshness_policy.hpp"
 
 #include <gtest/gtest.h>
 

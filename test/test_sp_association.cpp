@@ -3,7 +3,7 @@
 #include <cmath>
 #include <limits>
 
-#include "diesel_vision_backend/sp_association.hpp"
+#include "diesel_vision_backend/armor/sp_association.hpp"
 
 namespace {
 

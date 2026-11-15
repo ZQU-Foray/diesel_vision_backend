@@ -1,10 +1,10 @@
-#include "diesel_vision_backend/tracked_aim.hpp"
+#include "diesel_vision_backend/armor/tracked_aim.hpp"
 
 #include <algorithm>
 #include <array>
 #include <cmath>
 
-#include "diesel_vision_backend/aimer.hpp"
+#include "diesel_vision_backend/armor/aimer.hpp"
 
 namespace diesel_vision_backend {
 

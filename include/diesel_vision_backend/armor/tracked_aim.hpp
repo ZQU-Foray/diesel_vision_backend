@@ -1,10 +1,10 @@
-#ifndef FORAY_AUTO_AIM_TRACKED_AIM_HPP
-#define FORAY_AUTO_AIM_TRACKED_AIM_HPP
+#ifndef DIESEL_VISION_BACKEND_ARMOR_TRACKED_AIM_HPP
+#define DIESEL_VISION_BACKEND_ARMOR_TRACKED_AIM_HPP
 
 #include <Eigen/Geometry>
 
-#include "diesel_vision_backend/gimbal_command.hpp"
-#include "diesel_vision_backend/target.hpp"
+#include "diesel_vision_backend/armor/gimbal_command.hpp"
+#include "diesel_vision_backend/armor/target.hpp"
 
 namespace diesel_vision_backend {
 
@@ -44,4 +44,4 @@ AimSelection select_aim_armor(const TargetState& state, const Eigen::Vector3d& g
 
 } // namespace diesel_vision_backend
 
-#endif // FORAY_AUTO_AIM_TRACKED_AIM_HPP
+#endif // DIESEL_VISION_BACKEND_ARMOR_TRACKED_AIM_HPP

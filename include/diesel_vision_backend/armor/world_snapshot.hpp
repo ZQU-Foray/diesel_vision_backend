@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "diesel_vision_backend/tracker.hpp"
+#include "diesel_vision_backend/armor/tracker.hpp"
 
 namespace diesel_vision_backend {
 

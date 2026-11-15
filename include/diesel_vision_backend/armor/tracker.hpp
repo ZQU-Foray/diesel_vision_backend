@@ -1,12 +1,12 @@
-#ifndef FORAY_AUTO_AIM_TRACKER_HPP
-#define FORAY_AUTO_AIM_TRACKER_HPP
+#ifndef DIESEL_VISION_BACKEND_ARMOR_TRACKER_HPP
+#define DIESEL_VISION_BACKEND_ARMOR_TRACKER_HPP
 
 #include <array>
 #include <cstdint>
 #include <optional>
 #include <vector>
 
-#include "diesel_vision_backend/target.hpp"
+#include "diesel_vision_backend/armor/target.hpp"
 
 namespace diesel_vision_backend {
 
@@ -181,4 +181,4 @@ class Tracker {
 
 } // namespace diesel_vision_backend
 
-#endif // FORAY_AUTO_AIM_TRACKER_HPP
+#endif // DIESEL_VISION_BACKEND_ARMOR_TRACKER_HPP
