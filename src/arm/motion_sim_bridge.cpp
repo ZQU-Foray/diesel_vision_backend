@@ -40,7 +40,10 @@ int main(int argc, char** argv) {
         c.cartesian_step_m = .0005;
         c.tcp_speed_m_s = .04;
         c.tcp_accel_m_s2 = .08;
-        const LevelArmAngles start{0, 1.0471975511965976, -.3490658503988659};
+        const bool camera_task =
+            argc == 6 && std::string(argv[5]).find("camera") != std::string::npos;
+        // 侧装镜头采用较高合成拍摄初态；须与MuJoCo初始化一致，不是实物归位命令。
+        const LevelArmAngles start{0, 1.0471975511965976, camera_task ? .15 : -.3490658503988659};
         TcpGoal goal;
         goal.base_tcp.translation() = Eigen::Vector3d(.20, 0, .10);
         goal.endpoint_tcp.translation() = Eigen::Vector3d(0, 0, -.025);
@@ -84,10 +87,8 @@ int main(int argc, char** argv) {
             if (!object)
                 throw std::invalid_argument("camera pairing rejected");
             Eigen::Isometry3d object_tcp = Eigen::Isometry3d::Identity();
-            object_tcp.linear() =
-                Eigen::AngleAxisd(-1.5707963267948966, Eigen::Vector3d::UnitX()).toRotationMatrix();
             object_tcp.translation() =
-                Eigen::Vector3d(0, 0, -.015); // 标记板位于期望TCP前方15mm，仿真任务配置。
+                Eigen::Vector3d(0, 0, -.015); // 水平标记板在期望TCP上方15mm，顶抓仿真配置。
             goal.base_tcp = *object * object_tcp;
             const double yaw =
                 std::atan2(goal.base_tcp.linear()(1, 0), goal.base_tcp.linear()(0, 0));
