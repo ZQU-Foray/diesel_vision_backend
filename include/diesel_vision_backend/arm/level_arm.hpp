@@ -18,8 +18,8 @@ struct LevelArmGeometry {
 };
 
 struct LevelArmState {
-    Eigen::Vector3d elbow_m;
-    Eigen::Isometry3d base_endpoint;
+    Eigen::Vector3d elbow_m; ///< 基座系中的肘部位置，单位m。
+    Eigen::Isometry3d base_endpoint; ///< 末端系到基座系的位姿：位置和旋转，不是执行反馈。
 };
 
 /// 三主动自由度、末端理想保持水平的几何核心。
