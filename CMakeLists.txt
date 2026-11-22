@@ -11,7 +11,11 @@ find_package(diesel_platform_core REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
     src/arm/level_arm.cpp
+    src/arm/motor_angle_mapping.cpp
+    src/arm/target_angle_check.cpp
     src/arm/observation.cpp
+    src/arm/motion_pipeline.cpp
+    src/arm/route_plan.cpp
     src/armor/filter_friendly.cpp
     src/armor/aimer.cpp
     src/armor/target.cpp
@@ -36,6 +40,10 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
+# 仿真计算桥，不创建真实设备；演示执行器由工作区MuJoCo脚本提供。
+add_executable(arm_motion_sim_bridge src/arm/motion_sim_bridge.cpp)
+target_link_libraries(arm_motion_sim_bridge PRIVATE ${PROJECT_NAME})
+
 install(TARGETS ${PROJECT_NAME}
     EXPORT export_${PROJECT_NAME}
     ARCHIVE DESTINATION lib
@@ -47,9 +55,15 @@ ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
 
 if(BUILD_TESTING)
     find_package(ament_cmake_gtest REQUIRED)
+    ament_add_gtest(test_arm_motion_pipeline test/test_arm_motion_pipeline.cpp)
+    target_link_libraries(test_arm_motion_pipeline ${PROJECT_NAME})
     add_executable(test_arm_geometry test/test_arm_geometry.cpp)
     target_link_libraries(test_arm_geometry PRIVATE ${PROJECT_NAME})
     add_test(NAME test_arm_geometry COMMAND test_arm_geometry)
+    ament_add_gtest(test_motor_angle_mapping test/test_motor_angle_mapping.cpp)
+    target_link_libraries(test_motor_angle_mapping ${PROJECT_NAME})
+    ament_add_gtest(test_target_angle_check test/test_target_angle_check.cpp)
+    target_link_libraries(test_target_angle_check ${PROJECT_NAME})
     ament_add_gtest(test_arm_observation test/test_arm_observation.cpp)
     target_link_libraries(test_arm_observation ${PROJECT_NAME})
     ament_add_gtest(test_freshness_policy test/test_freshness_policy.cpp)
